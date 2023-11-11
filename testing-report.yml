@@ -1,0 +1,52 @@
+---
+- summary: |
+    Проверка поиска товара по ключевому слову
+  status: pass
+
+- summary: |
+    Проверка поиска товара по категории
+  status: pass
+
+- summary: |
+    Проверка поиска товара по всем категориям каталога
+  status: fail
+
+- summary: |
+    Проверка фильтрации товаров
+  status: pass
+
+- summary: |
+    Проверка просмотра подробной информации о товаре
+  status: pass
+
+- summary: |
+    Проверка добавления товара в корзину с главной страницы
+  status: pass
+
+- summary: |
+    Проверка оформления заказа из корзины
+  status: fail
+
+- summary: |
+    Проверка мобильной верстки сайта
+  status: pass
+
+- summary: |
+    Проверка работы на планшете
+  status: pass
+
+- summary: |
+    Проверка работы в браузере Google Chrome
+  status: pass
+
+- summary: |
+    Проверка работы в браузере Safari
+  status: pass
+
+- summary: |
+    Проверка работы в браузере EI 10
+  status: fail
+
+- summary: |
+    Проверка работы в браузере Firefox
+  status: pass
