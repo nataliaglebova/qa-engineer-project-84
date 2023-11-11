@@ -1,7 +1,7 @@
 ---
 - summary: |
     Проверка поиска товара по ключевому слову
-  status: pass
+  status: fail
 
 - summary: |
     Проверка поиска товара по категории
@@ -13,6 +13,10 @@
 
 - summary: |
     Проверка фильтрации товаров
+  status: pass
+
+- summary: |
+    Проверка фильтрации по цене
   status: pass
 
 - summary: |
@@ -44,9 +48,17 @@
   status: pass
 
 - summary: |
-    Проверка работы в браузере EI 10
+    Проверка работы в браузере EI 11
   status: fail
 
 - summary: |
     Проверка работы в браузере Firefox
   status: pass
+
+- summary: |
+    Проверка отображения изображений товара
+  status: fail
+
+- summary: |
+    Проверка смены языка интерфейса
+  status: fail

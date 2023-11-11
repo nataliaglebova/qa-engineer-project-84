@@ -1,0 +1,150 @@
+---
+test-cases:
+  - summary: |
+    Проверка поиска товара по ключевому слову
+  status: fail
+
+  - summary: |
+    Проверка поиска товара по категории
+  status: pass
+
+  - summary: |
+    Проверка поиска товара по всем категориям каталога
+  status: fail
+
+  - summary: |
+    Проверка фильтрации товаров
+  status: pass
+
+  - summary: |
+    Проверка фильтрации по цене
+  status:  fail
+
+  - summary: |
+    Проверка просмотра подробной информации о товаре
+  status: pass
+
+  - summary: |
+    Проверка добавления товара в корзину с главной страницы
+  status: pass
+
+  - summary: |
+    Проверка оформления заказа из корзины
+  status: fail
+
+  - summary: |
+    Проверка мобильной верстки сайта
+  status: pass
+
+  - summary: |
+    Проверка работы на планшете
+  status: pass
+
+  - summary: |
+    Проверка работы в браузере Google Chrome
+  status: pass
+
+  - summary: |
+    Проверка работы в браузере Safari
+  status: pass
+
+  - summary: |
+    Проверка работы в браузере EI 11
+  status: fail
+
+  - summary: |
+    Проверка работы в браузере Firefox
+  status: pass
+
+  - summary: |
+    Проверка отображения изображений товара
+  status: pass
+
+  - summary: |
+    Проверка смены языка интерфейса
+  status: fail
+
+bugreports:
+  - summary: |
+      Проверка фильтрации по цене
+  environment: |
+        Firefox 115.4.0esr (64-разрядный)
+        ОС Windows 7
+  steps-to-reproduce: |
+    1. Зайти на страницу https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+    2. В фильтрах выбрать отрицательное значение "до -1000"
+  expected-result: |
+    При выборе отрицательной цены товара поиск не даст результатов, не даётся возможность ввода отрицательного  числа
+  actual-result: |
+    Выводится перечень товаров
+
+  - summary: |
+    Не работает поиск по ключевому слову
+  environment: |
+    Firefox 115.4.0esr (64-разрядный)
+    ОС Windows 7
+  steps-to-reproduce: |
+    1. Зайти на страницу https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+    2. В строке поиска написать shoe
+  expected-result: |
+    При поиске по ключевому слову загружаются подходящие товары
+  actual-result: |
+    Поиск не даёт результатов
+    Сайт проводит поиск товаров только на текущей странице
+
+  - summary: |
+    Не работает поиск по всем категориям каталога
+  environment: |
+    Firefox 115.4.0esr (64-разрядный)
+    ОС Windows 7
+  steps-to-reproduce: |
+    1. Зайти на страницу https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+    2. Нажать на выпадающий список в блоке фильтрации "Category"
+    3. Перейти на следующую страницу
+  expected-result: |
+    При выборе категорий будет выводится полный список категорий всего каталога товаров
+  actual-result: |
+    Выводится только перечень категорий товаров на текущей странице
+    При выборе категории и переходе на следующую страницу сохраняется выбранная категория, но фильтр не работает
+    При переходе на следующую страницу меняются категории и фильтры по брендам
+
+  - summary: |
+    Не работает оформление заказа
+  environment: |
+    Firefox 115.4.0esr (64-разрядный)
+    ОС Windows 7
+  steps-to-reproduce: |
+    1. Зайти на страницу https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+    2. Выбрать товар и положить его в корзину
+    3. Перейти на корзину
+    4. Нажать "Оформить заказ"
+  expected-result: |
+    На сервер будет отправлен запрос с информацией о заказе
+  actual-result: |
+    Запрос не направляется, в Devtools  ошибка, тип направляемого запроса GET
+
+  - summary: |
+    Не работает через браузер EI 11
+  environment: |
+    EI 11 (64-разрядный)
+    ОС Windows 10
+  steps-to-reproduce: |
+    1. Зайти на страницу https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+  expected-result: |
+    Откроется главная страница магазина
+  actual-result: |
+    Сайт не отображается, белый экран
+
+  - summary: |
+    Не сохраняются настройки языка интерфейса
+  environment: |
+    Firefox 115.4.0esr (64-разрядный)
+    ОС Windows 7
+  steps-to-reproduce: |
+    1. Зайти на страницу https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+    2. Выбрать Language  для смены языка интерфейса
+    3. После смены языка обновить страницу
+  expected-result: |
+    Настройки, выбранные пользователям, сохраняются
+  actual-result: |
+    Настройки, выбранные пользователям, не сохраняются
